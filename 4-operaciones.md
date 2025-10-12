@@ -6,10 +6,22 @@ docker exec <nombre contenedor> <comando> <argumentos opcionales>
 ```
 # COMPLETAR
 ### ¿Para qué se usa el comando ls?
+El comando ls se utiliza dentro de un contenedor para listar los archivos y directorios del sistema de archivos del contenedor. Es útil para explorar qué hay instalado, verificar rutas, o inspeccionar volúmenes montados
 ### ¿Para qué sirve el argumento -l junto al comando ls?
+El argumento -l muestra la lista en formato largo, incluyendo:
+- Permisos del archivo
+- Propietario y grupo
+- Tamaño en bytes
+- Fecha de modificación
+- Nombre del archivo
+Esto permite entender mejor la estructura y permisos de los archivos dentro del contenedor.
 ### Usar el contenedor de jenkins creado previamente y ejecutar el comando ls con el argumento -l
 # COMPLETAR
+```
+docker exec -i jenkins-web ls -l
+```
 # COLOCAR UNA CAPTURA DE PANTALLA
+<img width="794" height="616" alt="image" src="https://github.com/user-attachments/assets/bf3e4db9-df02-4d5c-b286-8972b635247f" />
 
 ### Para ejecutar un shell interactivo en un contenedor de Docker especificado.
 El comando **docker exec** te permite acceder a la sesión shell de un contenedor en ejecución, estarás dentro del contenedor y podrás ejecutar comandos como si estuvieras en una terminal normal. 
@@ -44,6 +56,7 @@ Ejecutar
 whoami
 ```
 # COLOCAR UNA CAPTURA DE PANTALLA
+<img width="847" height="174" alt="image" src="https://github.com/user-attachments/assets/60917ed1-cbfb-4132-9f35-214136f6c1f8" />
 
 **Si se visualiza el mensaje command not found, considerar**
 El problema se debe a que no se ha asignado un terminal de salida al contenedor al ejecutar el comando. Cuando usas docker exec -i jenkins-server /bin/bash en Windows, el comando se ejecuta pero no hay un terminal asignado para mostrar la salida del comando ls.
@@ -64,8 +77,13 @@ docker exec -it <nombre contenedor> <programa o comando>
 ### Ahora puedes acceder al contenedor de jenkins y obtener la contraseña ubicada en /var/jenkins_home/secrets/initialAdminPassword
 
 # COMPLETAR
+docker exec -it jenkins-web cat /var/jenkins_home/secrets/initialAdminPassword
 
 ### Colocar una captura de pantalla de la ventana que aparece después de colocar la contraseña.
+<img width="1203" height="119" alt="image" src="https://github.com/user-attachments/assets/c64f87af-1691-480f-8e93-c4e4d9dccd6e" />
+
+<img width="2448" height="1412" alt="image" src="https://github.com/user-attachments/assets/21b61f86-94ec-4f96-b567-97ba7ae887aa" />
+
 
 **Para este punto no es necesario continuar con la instalación de Jenkins**
 
